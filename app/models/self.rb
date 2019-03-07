@@ -1,0 +1,2 @@
+class Self < ApplicationRecord
+end
