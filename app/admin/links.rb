@@ -1,4 +1,4 @@
-ActiveAdmin.register Self do
+ActiveAdmin.register Link do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,6 +12,6 @@ ActiveAdmin.register Self do
 #   permitted
 # end
 
-permit_params :name, :address, :postal_code, :phone_number, :email, :city, :about, :image
+permit_params :self_id, :key, :source
 
 end

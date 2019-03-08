@@ -8,6 +8,8 @@ class CreateSelves < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :city
       t.text :about
+      t.string :image
+      t.string :background
 
       t.timestamps
     end

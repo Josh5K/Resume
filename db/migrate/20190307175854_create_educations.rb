@@ -8,6 +8,7 @@ class CreateEducations < ActiveRecord::Migration[5.2]
       t.date :end_date
       t.string :program
       t.integer :self_id
+      t.string :image
 
       t.timestamps
     end
