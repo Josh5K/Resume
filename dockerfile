@@ -37,4 +37,7 @@ RUN bundle install
 ADD . $APP_HOME
 
 # Run our app
+CMD bundle exec rails db:create
+CMD bundle exec rails db:migrate
+CMD bundle exec rails db:seed
 CMD bundle exec rails s -p ${PORT} -b '0.0.0.0'
