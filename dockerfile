@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y sqlite3 vim curl --no-install-recommend
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
         && apt-get install -y nodejs
 
-#ENV RAILS_ENV production
-#ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
 
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
