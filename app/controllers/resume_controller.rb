@@ -1,6 +1,6 @@
 class ResumeController < ApplicationController
   def index
-    name = params[:person].sub!('+', ' ')
+    name = params[:person].sub!('+', ' ').downcase
     @person = Self.where("lower(name) = ?", name).first
 
     if not @person

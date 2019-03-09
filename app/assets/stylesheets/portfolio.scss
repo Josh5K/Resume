@@ -1,3 +1,46 @@
-// Place all the styles related to the portfolio controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.card {
+    width: 600px;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+
+.cta {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+.cta span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.cta span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.cta:hover span {
+  padding-right: 25px;
+}
+
+.cta:hover span:after {
+  opacity: 1;
+  right: 0;
+}
