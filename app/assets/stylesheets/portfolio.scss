@@ -1,5 +1,5 @@
 .card {
-    width: 600px;
+    width: 48%;
     float: left;
     padding: 10px;
     margin: 10px;
@@ -43,4 +43,13 @@
 .cta:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+@media (max-width: 900px) {
+    .card-container {
+        margin-top: 250px;
+    }
+    .card {
+        width: 95%;
+    }
 }

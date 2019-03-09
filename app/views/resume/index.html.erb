@@ -10,7 +10,7 @@
         <div class="column-exp company-info">
           <h4><%= job.company %> - <small><%= job.title %></small></h4>
           <% if(job.address.include? "http") %>
-            <a href="<%= job.address %>"><h3><small><%= job.address %></small></h3></a>
+            <a href="<%= job.address %>"><h4><small><%= job.address %></small></h4></a>
           <% else %>
             <h4><small><%= job.address %></small></h4>
           <% end %>

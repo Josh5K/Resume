@@ -1,7 +1,9 @@
-<% @person.projects.each do |project| %>
-<div class="card" style="background: url('<%= project.image %>') no-repeat; background-size: cover">
-  <h2 class="card-h2"><%= project.title %></h2>
-  <p class="card-p"><%= project.description %></p>
-  <a href="<%= project.link %>"><button class="cta" style="vertical-align:middle"><span>See for yourself! </span></button></a>
+<div class="card-container">
+    <% @person.projects.each do |project| %>
+        <div class="card" style="background: url('<%= project.image %>') no-repeat; background-size: cover">
+            <h2 class="card-h2"><%= project.title %></h2>
+            <p class="card-p"><%= project.description %></p>
+            <a href="<%= project.link %>"><button class="cta" style="vertical-align:middle"><span>See for yourself! </span></button></a>
+        </div>
+    <% end %>
 </div>
-<% end %>
