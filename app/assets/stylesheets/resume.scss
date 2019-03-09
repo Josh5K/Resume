@@ -65,6 +65,63 @@ h4,
 
 //Responsive Styling
 
+@media (max-width: 1300px) {
+  .row-exp {
+    margin-top: 10%;
+    padding: 20px;
+    color: black;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .column-exp {
+      float: left;
+      width: 35%;
+      &:nth-child(2) {
+        width: 65%;
+      }
+    }
+  }
+}
+
+@media (max-width: 970px) {
+  .img-profile {
+    width: 30%;
+    height: 30%;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  h1 {
+    font-size: 30px;
+  }
+
+  img {
+    width: 70%;
+    height: 70%;
+  }
+
+  .column-exp {
+    width: 100%
+  }
+
+  .row {
+    font-size: 10px;
+  }
+
+  .resume-container {
+    margin-top: 220px;
+  }
+
+  .row-exp {
+    h4, a{
+      font-size: 15px;
+    }
+  }
+}
+
 @media (min-width: 992px) {
 
   body {
