@@ -15,6 +15,7 @@ RUN bundle config --global frozen 1
 RUN bundle install --without development test
 
 COPY . /usr/src/app
+RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
 
