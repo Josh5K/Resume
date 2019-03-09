@@ -1,43 +1,27 @@
 # Base image
 FROM ruby:2.6.0
 
-# Setup environment variables that will be available to the instance
-ENV APP_HOME /produciton
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# Installation of dependencies
-RUN apt-get update -qq \
-  && apt-get install -y \
-      # Needed for certain gems
-    build-essential \
-         # Needed for postgres gem
-    libpq-dev \
-         # Needed for asset compilation
-    nodejs \
-    # The following are used to trim down the size of the image by removing unneeded data
-  && apt-get clean autoclean \
-  && apt-get autoremove -y \
-  && rm -rf \
-    /var/lib/apt \
-    /var/lib/dpkg \
-    /var/lib/cache \
-    /var/lib/log
+RUN apt-get update && apt-get install -y nodejs mysql-client postgresql-client sqlite3 vim --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-# Create a directory for our application
-# and set it as the working directory
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
+ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
 
-# Add our Gemfile
-# and install gems
+COPY Gemfile /usr/src/app/
+COPY Gemfile.lock /usr/src/app/
+RUN bundle config --global frozen 1
+RUN bundle install --without development test
 
-ADD Gemfile* $APP_HOME/
-RUN bundle install
+COPY . /usr/src/app
+RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
 
-# Copy over our application code
-ADD . $APP_HOME
+EXPOSE 3000
 
 # Run our app
 CMD bundle exec rails db:create
 CMD bundle exec rails db:migrate
 CMD bundle exec rails db:seed
-CMD bundle exec rails s -p ${PORT} -b '0.0.0.0'
+CMD ["rails", "server", "-b", "0.0.0.0"]
