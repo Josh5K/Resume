@@ -12,6 +12,6 @@ ActiveAdmin.register Education do
 #   permitted
 # end
 
-permit_params :self_id, :school, :certificate, :start_date, :end_date, :program, :address
+permit_params :self_id, :school, :certificate, :start_date, :end_date, :program, :address, :image
 
 end

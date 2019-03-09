@@ -6,7 +6,7 @@
     <div class"information">
       <h4><%= @person.name %></h4>
       <p>
-      <%= @person.address %>
+      <%= @person.address %>, <%= @person.city %>
       <br/>
       (<%= @person.phone_number.to_s[0...3] %>) <%= @person.phone_number.to_s[3...6] %>-<%= @person.phone_number.to_s[6...100] %>
       <br/>
@@ -23,12 +23,66 @@
     </ul>
     </div>
   </nav>
-  <div class="grid" >
-    <div class="left">
+  <div class="row" >
+    <div class="column">
       <h1>Experience</h1>
-    </div
-    <div class="right">
+      <% @person.jobs.each do |job| %>
+      <div class="row-exp">
+        <div class="column-exp">
+          <img src="<%= job.image %>" height="100px" width="100px"/>
+        </div>
+        <div class="column-exp company-info">
+          <h4><%= job.company %> - <small><%= job.title %></small></h4>
+          <% if(job.address.include? "http") %>
+            <a href="<%= job.address %>"><h3><small><%= job.address %></small></h3></a>
+          <% else %>
+            <h4><small><%= job.address %></small></h4>
+          <% end %>
+          <p>
+            <%= job.start_date %>
+            -
+            <% if(job.end_date > Date.today) %>
+              Present
+            <% else %>
+              <%= job.end_date %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="points">
+        <ul>
+          <% job.job_description.each do |desc| %>
+            <li><%= desc.desc %></li>
+          <% end %>
+        <ul>
+      </div>
+      <% end %>
+    </div>
+    <div class="column">
       <h1>Education</h1>
+      <% @person.educations.each do |school| %>
+      <div class="row-exp">
+        <div class="column-exp">
+          <img src="<%= school.image %>" height="100px" width="100px"/>
+        </div>
+        <div class="column-exp">
+          <h4><%= school.school %> - <small><%= school.certificate %></small></h4>
+          <h4><small><%= school.address %></small></h4>
+          <p>
+            <%= school.start_date %>
+            -
+            <%= school.end_date %>
+          </p>
+        </div>
+      </div>
+      <div class="points">
+        <ul>
+          <% school.education_description.each do |desc| %>
+            <li><%= desc.desc %></li>
+          <% end %>
+        <ul>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

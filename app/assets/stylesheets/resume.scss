@@ -26,6 +26,43 @@ h4,
   background-color: #BD5D38 !important;
 }
 
+.row {
+  margin-top: 5%;
+  padding: 20px;
+  color: black;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column {
+    float: left;
+    width: 50%;
+  }
+}
+
+.row-exp {
+  margin-top: 10%;
+  padding: 20px;
+  color: black;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column-exp {
+    float: left;
+    width: 20%;
+    &:nth-child(2) {
+      width: 80%;
+    }
+  }
+}
+
+.company-info {
+  width: 20%;
+}
+
 //Responsive Styling
 
 @media (min-width: 992px) {

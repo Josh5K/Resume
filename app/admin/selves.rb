@@ -12,6 +12,6 @@ ActiveAdmin.register Self do
 #   permitted
 # end
 
-permit_params :name, :address, :postal_code, :phone_number, :email, :city, :about, :image
+permit_params :name, :address, :postal_code, :phone_number, :email, :city, :about, :image, :background
 
 end
