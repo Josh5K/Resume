@@ -64,11 +64,6 @@ p {
   grid-template-columns: 210px 45% auto;
 }
 
-.project-container {
-  display: grid;
-  grid-template-columns: 210px auto;
-}
-
 .project-sidenav {
   grid-column-start: 1;
   grid-column-end: 1;
@@ -173,6 +168,39 @@ p {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+    a {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .educations {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+
+  h1, h4 {
+    font-size: 15px;
+  }
+  p, li {
+    font-size: 10px;
+  }
+
+  .sidenav {
+    padding-top: 15px;
+    width: 100px;
+    a, p {
+      font-size: 10px;
+    }
+    img {
+      width: 50%;
+    }
+  }
+
+  .resume-container {
+    grid-template-columns: 110px auto;
+  }
 }
