@@ -29,6 +29,15 @@
           <% else %>
             <h4><small><%= job.address %></small></h4>
           <% end %>
+          <p>
+            <%= job.start_date %>
+            -
+            <% if(job.end_date > Date.today) %>
+              Present
+            <% else %>
+              <%= job.end_date %>
+            <% end %>
+          </p>
         </div>
         <div class="job-desc">
           <ul>
