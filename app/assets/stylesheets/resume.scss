@@ -1,8 +1,6 @@
 body {
   font-family: 'Muli';
   padding-top: 54px;
-  color: #868e96;
-  background-image: url('https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -13,7 +11,21 @@ h4,
 {
   font-weight: 700;
   text-transform: uppercase;
-  color: #343a40;
+}
+
+h1 {
+  color: black;
+  font-family: 'Trocchi', serif;
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 0;
+}
+
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px; line-height: 32px;
+  margin: 0 0 24px;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -26,160 +38,141 @@ h4,
   background-color: #BD5D38 !important;
 }
 
-.row {
-  margin-top: 5%;
-  padding: 20px;
-  color: black;
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .column {
-    float: left;
-    width: 50%;
-  }
-}
-
-.row-exp {
+.jobs {
+  grid-column-start: 2;
+  grid-column-end: 2;
   margin-top: 10%;
-  padding: 20px;
-  color: black;
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .column-exp {
-    float: left;
-    width: 20%;
-    &:nth-child(2) {
-      width: 80%;
-    }
-  }
-}
-
-.company-info {
-  width: 20%;
-}
-
-//Responsive Styling
-
-@media (max-width: 1300px) {
-  .row-exp {
-    margin-top: 10%;
-    padding: 20px;
-    color: black;
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    .column-exp {
-      float: left;
-      width: 35%;
-      &:nth-child(2) {
-        width: 65%;
-      }
-    }
-  }
-}
-
-@media (max-width: 970px) {
-  .img-profile {
-    width: 30%;
-    height: 30%;
-  }
-}
-
-@media (max-width: 1000px) {
-
   h1 {
-    font-size: 30px;
+    margin-bottom: 10%;
   }
+}
 
+.educations {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  h1 {
+    margin-bottom: 10%;
+  }
+}
+
+.resume-container {
+  display: grid;
+  grid-column-gap: 10px;
+  columns: 2;
+  grid-template-columns: 210px 45% auto;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: 210px auto;
+}
+
+.project-sidenav {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.job {
+  display: grid;
+  grid-template-columns: 100px auto auto auto;
+  grid-column-gap: 20px;
+  color: black;
+  margin-bottom: 10%;
+  grid-row-gap: 5%;
+}
+
+.job-image {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  padding: 0px 10px 0px 40px;
+}
+
+.job-info {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  margin-left: 30px;
+}
+
+.job-desc {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.education {
+  display: grid;
+  grid-template-columns: 100px auto auto auto;
+  grid-column-gap: 20px;
+  color: black;
+  margin-bottom: 10%;
+}
+
+.education-image {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  padding: 0px 10px 0px 40px;
+}
+
+.education-info {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  margin-left: 30px;
+}
+
+.education-desc {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #BD5D38;
+  overflow-x: hidden;
+  padding-top: 20px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  text-align: center;
+  a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+  }
+  p {
+    font-size: 15px;
+  }
   img {
-    width: 70%;
-    height: 70%;
-  }
-
-  .column-exp {
-    width: 100%
-  }
-
-  .row {
-    font-size: 10px;
-  }
-
-  .resume-container {
-    margin-top: 260px;
-  }
-
-  .row-exp {
-    h4, a{
-      font-size: 15px;
+    width: 80%;
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
 
-@media (min-width: 992px) {
+.vertical-center {
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  position: absolute;
+}
 
-  body {
-    padding-top: 0;
-    padding-left: 17rem;
-  }
+.sidenav a:hover {
+  color: #f1f1f1;
+}
 
-  #sideNav {
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 17rem;
-    height: 100vh;
-  }
-  #sideNav .navbar-brand {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: auto auto 0;
-    padding: 0.5rem;
-  }
-  #sideNav .navbar-brand .img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
-  }
-  #sideNav .navbar-collapse {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    width: 100%;
-    margin-bottom: auto;
-  }
-  #sideNav .navbar-nav {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-  }
-  #sideNav .navbar-nav .nav-item {
-    display: block;
-  }
-  #sideNav .navbar-nav .nav-item .nav-link {
-    display: block;
-  }
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

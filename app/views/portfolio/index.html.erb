@@ -1,9 +1,27 @@
-<div class="card-container">
-    <% @person.projects.each do |project| %>
-        <div class="card" style="background: url('<%= project.image %>') no-repeat; background-size: cover">
-            <h2 class="card-h2"><%= project.title %></h2>
-            <p class="card-p"><%= project.description %></p>
-            <a href="<%= project.link %>"><button class="cta" style="vertical-align:middle"><span>See for yourself! </span></button></a>
+<div class="project-container">
+    <div class="sidenav project-sidenav">
+    <div class="vertical-center">
+    <a href="/resume/<%= @person.name.sub(' ', '+') %>"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<%= @person.image %>" alt=""></a>
+        <h4><%= @person.name %></h4>
+        <p>
+        <%= @person.address %>, <%= @person.city %> - <%= @person.postal_code %>
+        <br/>
+        (<%= @person.phone_number.to_s[0...3] %>) <%= @person.phone_number.to_s[3...6] %>-<%= @person.phone_number.to_s[6...100] %>
+        <br/>
+        <%= @person.email %>
+        </p>
+        <% @person.links.each do |link| %>
+        <a href="<%= link.source %>"><%= link.key %></a>
+        <% end %>
         </div>
-    <% end %>
+    </div>
+    <div class="card-container">
+        <% @person.projects.each do |project| %>
+            <div class="card" style="background: url('<%= project.image %>') no-repeat; background-size: cover">
+                <h2 class="card-h2"><%= project.title %></h2>
+                <p class="card-p"><%= project.description %></p>
+                <a href="<%= project.link %>"><button class="cta" style="vertical-align:middle"><span>See for yourself! </span></button></a>
+            </div>
+        <% end %>
+    </div>
 </div>
